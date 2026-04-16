@@ -1,5 +1,113 @@
 ---
 title: "Owner Analysis"
 format: html
+author: Huong Trinh
+date: today
+toc: false
+toc-depth: 2
+number-sections: false
+theme: cosmo
+execute:
+  message: false
+  warning: false
 ---
 
+## Explore, Clean, and Wrangle Data
+
+```{r}
+# Load the libraries
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(here)
+```
+
+```{r}
+# Read in the data
+lobster_abundance <- read_csv(here::here("data/Lobster_Abundance_All_Years_20260108.csv"))
+
+# Explore the data
+glimpse(lobster_abundance)
+summary(lobster_abundance)
+unique(lobster_abundance$SITE)
+unique(lobster_abundance$SIZE_MM)
+
+# Convert missing values to NA
+lobster_abundance <- lobster_abundance %>%
+  mutate(SIZE_MM = na_if(SIZE_MM, -99999))
+
+unique(lobster_abundance$SIZE_MM)
+
+# Make the subset that excludes Naples Reef (NAPL)
+not_napl <- lobster_abundance %>%
+  filter(SITE != "NAPL")
+
+unique(not_napl$SITE)
+
+# Make the AQUE and size >70 subset
+aque_70mm <- lobster_abundance %>%
+  filter(SITE == "AQUE" & SIZE_MM >= 70)
+
+glimpse(aque_70mm)
+
+# Find the maximum carapace length by site and month
+max_lobster <- lobster_abundance %>%
+  group_by(SITE, MONTH) %>%
+  summarize(MAX_LENGTH = max(SIZE_MM, na.rm = TRUE))
+
+print(max_lobster)
+```
+
+
+## **Data Visualization**
+
+```{r}
+# Histogram of lobster size by site
+ggplot(data = lobster_abundance, aes(x = SIZE_MM)) +
+  geom_histogram() +
+  facet_wrap(~SITE)
+
+# Summarize total lobsters by site and year
+lobsters_summarize <- lobster_abundance %>%
+  count(SITE, YEAR, name = "COUNT")
+
+# Line plot of total lobsters by year and site
+ggplot(data = lobsters_summarize, aes(x = YEAR, y = COUNT, color = SITE)) +
+  geom_line() +
+  geom_point()
+
+# Create small/large size summary for 2019-2021
+lobster_size_lrg <- lobster_abundance %>%
+  filter(YEAR %in% c(2019, 2020, 2021)) %>%
+  drop_na(SIZE_MM) %>%
+  mutate(SIZE_BIN = if_else(SIZE_MM <= 70, "small", "large")) %>%
+  count(SITE, SIZE_BIN, name = "COUNT")
+
+# Bar graph
+ggplot(data = lobster_size_lrg, aes(x = SITE, y = COUNT, fill = SIZE_BIN)) +
+  geom_col(position = "dodge")
+
+# Styled line plot
+lobster_line_plot <- ggplot(data = lobsters_summarize,
+                            aes(x = YEAR, y = COUNT, color = SITE)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+  labs(
+    title = "Total Lobsters Observed by Year",
+    x = "Year",
+    y = "Number of Lobsters",
+    color = "Site"
+  ) +
+  theme_light()
+
+lobster_line_plot
+
+# Save figure
+ggsave(
+  filename = here::here("figs/lobster-line-plot.png"),
+  plot = lobster_line_plot,
+  width = 8,
+  height = 5
+)
+```
