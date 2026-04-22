@@ -1,7 +1,7 @@
 ---
 title: "Lobster Report"
 format: html
-author: Tymesha and Huong Trinh
+author: Tymesha Bovell and Huong Trinh
 date: today
 toc: false
 toc-depth: 2
@@ -16,11 +16,11 @@ execute:
 
 The lobster abundance and size data used in this report were obtained from the **Santa Barbara Coastal Long-Term Ecological Research (SBC LTER)** program, archived on the EDI Data Portal. Data were collected by divers conducting annual and periodic surveys along permanent transects at five reef sites in the Santa Barbara Channel. Lobster counts and carapace lengths (mm) were recorded at each transect and replicate.
 
-**-Dataset:** Reed, D., and R. Miller. 2023. *SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012.* Environmental Data Initiative. <https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-sbc.77.8>
+**-Dataset:** Reed, D., and R. Miller. 2023. *SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012.* Environmental Data Initiative.
 
 \-**Downloaded:** April 22, 2026
 
-\- **Direct download link:** <https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-sbc.77.8&entityid=77c7c62afdb66e1a6dbee77399fb28b6>
+\- **Direct download link:**
 
 ------------------------------------------------------------------------
 
@@ -45,10 +45,172 @@ library(tidyr)
 library(here)
 ```
 
+```{r}
+# Read in the data
+lobster_abundance <- read_csv(here::here("data/Lobster_Abundance_All_Years_20260108.csv"))
+lobster_traps <- read_csv(here::here("data/Lobster_Trap_Counts_All_Years_20210519.csv"))
+```
+
+### Lobster Abundance and Size (All Years)
+
+#### Data Exploration and Cleaning
+
+The lobster abundance and size dataset contains 14,333 rows and 10 columns, spanning observations from 2012 through 2025 across five reef sites: Arroyo Quemado (AQUE), Carpinteria (CARP), Isla Vista (IVEE), Mohawk (MOHK), and Naples (NAPL). Variables include the year, month, date, site, transect, replicate, carapace length (`SIZE_MM`), lobster count, and survey area. During initial exploration, the `SIZE_MM` column was found to use `-99999` as a placeholder for missing carapace measurements. These values were recoded as `NA` prior to analysis to prevent them from distorting any size-based summaries or visualizations. After cleaning, 154 distinct carapace lengths were recorded, ranging from 18 mm to 220 mm.
+
+```{r}
+#| label: clean
+
+lobster_abundance <- lobster_abundance %>%
+  mutate(SIZE_MM = na_if(SIZE_MM, -99999))
+```
+
+#### Data Wrangling
+
+To support targeted analysis, two subsets were created from the cleaned dataset. The first excluded observations from Naples Reef (NAPL) to allow comparison among the four remaining non-MPA and MPA sites independently. The second isolated individuals from Arroyo Quemado (AQUE) with a carapace length of at least 70 mm, capturing the larger size class at that site. In addition, maximum carapace length was computed for each combination of site and sampling month, providing a summary of the largest individuals recorded across the monitoring period. For the size class visualization, lobsters surveyed between 2019 and 2021 were classified as either "small" (carapace ≤ 70 mm) or "large" (carapace \> 70 mm), and counts within each size class were summarized by site.
+
+```{r}
+#| label: wrangle
+
+not_napl <- lobster_abundance %>%
+  filter(SITE != "NAPL")
+
+aque_70mm <- lobster_abundance %>%
+  filter(SITE == "AQUE" & SIZE_MM >= 70)
+
+max_lobster <- lobster_abundance %>%
+  group_by(SITE, MONTH) %>%
+  summarize(MAX_LENGTH = max(SIZE_MM, na.rm = TRUE), .groups = "drop")
+
+lobsters_summarize <- lobster_abundance %>%
+  group_by(SITE, YEAR) %>%
+  summarize(COUNT = n(), .groups = "drop")
+
+lobster_size_lrg <- lobster_abundance %>%
+  filter(YEAR %in% c(2019, 2020, 2021)) %>%
+  mutate(SIZE_BIN = if_else(SIZE_MM <= 70, true = "small", false = "large")) %>%
+  group_by(SITE, SIZE_BIN) %>%
+  summarize(COUNT = n(), .groups = "drop") %>%
+  drop_na()
+```
+
+### Lobster Trap Buoy Counts (All Years)
+
 ------------------------------------------------------------------------
 
 ## Data Visualization
 
+### Lobster Abundance and Size (All Years)
+
+**Figure 1: Size Distribution Patterns**
+
+It shows the distribution of carapace lengths at each site across the full monitoring period.
+
+```{r}
+#| label: fig-size-histogram
+#| fig-cap: "Distribution of California spiny lobster carapace length (mm) at each of the five SBC LTER reef sites (2012–2025)."
+#| fig-alt: "Faceted histogram showing lobster carapace size distributions across five sites. All sites show a right-skewed distribution centered around 70–100 mm, with NAPL and IVEE showing the widest spread toward larger sizes."
+
+ggplot(data = lobster_abundance, aes(x = SIZE_MM)) +
+  geom_histogram(binwidth = 5, fill = "#2a6b8a", color = "white", alpha = 0.85) +
+  facet_wrap(~ SITE, ncol = 3) +
+  labs(
+    title = "Lobster Carapace Size Distribution by Site",
+    x = "Carapace Length (mm)",
+    y = "Count"
+  ) +
+  theme_light() +
+  theme(
+    plot.title       = element_text(size = 15, face = "bold", hjust = 0.5),
+    axis.title       = element_text(size = 12, face = "bold"),
+    axis.text        = element_text(size = 10),
+    strip.text       = element_text(size = 11, face = "bold"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+```
+
+**Figure 2: Temporal Trends in Lobster Abundance**
+
+It tracks total lobster observations at each site from 2012 to 2025.
+
+```{r}
+#| label: fig-abundance-trend
+#| fig-cap: "Total number of California spiny lobster observations per year at each SBC LTER reef site, 2012–2025."
+#| fig-alt: "Line plot showing lobster count trends from 2012 to 2025. IVEE and CARP show steep increases after 2022, reaching over 1100 and 600 observations respectively by 2025. AQUE remains consistently low throughout."
+
+lobster_line_plot <- ggplot(data = lobsters_summarize,
+                            aes(x = YEAR, y = COUNT, color = SITE)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = seq(2012, 2025, 1)) +
+  labs(
+    title = "Total Lobsters Observed by Year",
+    x = "Year",
+    y = "Number of Lobsters",
+    color = "Site"
+  ) +
+  theme_light() +
+  theme(
+    plot.title       = element_text(size = 16, face = "bold", hjust = 0.5),
+    axis.title.x     = element_text(size = 14, face = "bold"),
+    axis.title.y     = element_text(size = 14, face = "bold"),
+    axis.text.x      = element_text(size = 11, angle = 45, vjust = 0.5),
+    axis.text.y      = element_text(size = 12),
+    legend.title     = element_text(size = 13),
+    legend.text      = element_text(size = 12),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+
+lobster_line_plot
+
+ggsave(
+  filename = here::here("figs/total-lobsters-observed-by-year-line-plot.png"),
+  plot = lobster_line_plot,
+  width = 8, height = 5
+)
+```
+
+**Figure 3: Size Class Composition During 2019–2021**
+
+It compares small and large lobster counts across sites during 2019–2021.
+
+```{r}
+#| label: fig-size-class
+#| fig-cap: "Count of small (≤ 70 mm) and large (> 70 mm) California spiny lobsters at each SBC LTER site from 2019 to 2021."
+#| fig-alt: "Dodged bar chart comparing small and large lobster counts across five sites for 2019–2021. Large lobsters dominate at all sites. IVEE has the highest total counts."
+
+ggplot(data = lobster_size_lrg,
+       aes(x = SITE, y = COUNT, fill = SIZE_BIN)) +
+  geom_col(position = "dodge", alpha = 0.9) +
+  scale_fill_manual(values = c("large" = "#e07b54", "small" = "#4db3a4"),
+                    labels = c("Large (> 70 mm)", "Small (≤ 70 mm)")) +
+  labs(
+    title = "Lobster Size Class by Site (2019–2021)",
+    x = "Site",
+    y = "Count",
+    fill = "Size Class"
+  ) +
+  theme_light() +
+  theme(
+    plot.title       = element_text(size = 15, face = "bold", hjust = 0.5),
+    axis.title       = element_text(size = 13, face = "bold"),
+    axis.text        = element_text(size = 11),
+    legend.title     = element_text(size = 12),
+    legend.text      = element_text(size = 11),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+```
+
+### Lobster Trap Buoy Counts (All Years)
+
 ------------------------------------------------------------------------
 
 ## Discussion
+
+### Lobster Abundance and Size (All Years)
+
+Figure 1 shows that most lobsters at all five sites had carapace lengths between 60 and 100 mm, and the distributions were right-skewed, meaning there were fewer large individuals. Naples Reef (NAPL), which is an MPA, had a wider size distribution with some lobsters reaching up to 220 mm, because lobsters there are not harvested and can grow larger and live longer. At non-MPA sites, very large lobsters were less common, suggesting that fishing pressure limits how large lobsters can get. Figure 2 shows that lobster counts were relatively stable from 2012 to 2022, staying between 50 and 550 per year across all sites. After 2022, counts increased sharply, especially at Isla Vista (IVEE) and Carpinteria (CARP), which reached about 1,150 and 650 lobsters by 2025. This increase may be due to reduced fishing pressure, better ocean conditions, or population recovery over time. IVEE is an MPA, where fishing is restricted, which likely explains why it showed the largest increase. Arroyo Quemado (AQUE) stayed low throughout the entire monitoring period, which may suggest that this site has less suitable habitat for lobsters. Figure 3 shows that from 2019 to 2021, large lobsters (\> 70 mm) were more common than small ones (≤ 70 mm) at every site, with IVEE and CARP having the highest counts and AQUE the fewest. The dominance of larger lobsters is likely related to the legal minimum size for commercial harvest, which protects smaller lobsters and gives them time to grow. Overall, these patterns suggest that fishing regulations and MPA protection both play an important role in shaping lobster populations along the Santa Barbara coast.
+
+### Lobster Trap Buoy Counts (All Years)
