@@ -1,5 +1,54 @@
 ---
 title: "Lobster Report"
 format: html
+author: Tymesha and Huong Trinh
+date: today
+toc: false
+toc-depth: 2
+number-sections: false
+theme: cosmo
+execute:
+  message: false
+  warning: false
 ---
 
+## Data source
+
+The lobster abundance and size data used in this report were obtained from the **Santa Barbara Coastal Long-Term Ecological Research (SBC LTER)** program, archived on the EDI Data Portal. Data were collected by divers conducting annual and periodic surveys along permanent transects at five reef sites in the Santa Barbara Channel. Lobster counts and carapace lengths (mm) were recorded at each transect and replicate.
+
+**-Dataset:** Reed, D., and R. Miller. 2023. *SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012.* Environmental Data Initiative. <https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-sbc.77.8>
+
+\-**Downloaded:** April 22, 2026
+
+\- **Direct download link:** <https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-sbc.77.8&entityid=77c7c62afdb66e1a6dbee77399fb28b6>
+
+------------------------------------------------------------------------
+
+## Abstract
+
+This report presents an analysis of California spiny lobster (*Panulirus interruptus*) abundance and size distribution across five reef sites along the Santa Barbara Channel mainland coast, using long-term monitoring data collected by SBC LTER researchers from 2012 to 2025. The owner analysis focuses on lobster abundance and carapace size trends over time and across sites, examining site-level variation and temporal dynamics in this ecologically and commercially important species. (Tymmy)
+
+------------------------------------------------------------------------
+
+## Data Analysis
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+# Load libraries
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(here)
+```
+
+------------------------------------------------------------------------
+
+## Data Visualization
+
+------------------------------------------------------------------------
+
+## Discussion
