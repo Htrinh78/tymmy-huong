@@ -119,7 +119,7 @@ lobster_line_plot
 
 # Save figure
 ggsave(
-  filename = here::here("figs/lobster-line-plot.png"),
+  filename = here::here("figs/total-lobsters-observed-by-year-line-plot.png"),
   plot = lobster_line_plot,
   width = 8,
   height = 5
