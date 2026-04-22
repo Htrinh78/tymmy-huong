@@ -1,5 +1,21 @@
 ---
 title: "Collaborator Analysis"
+author: "Tymesha Bovell"
 format: html
 ---
 
+```{r}
+# Loading Libraries 
+
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(here)
+
+# Use trap data
+
+lobster_traps <- read_csv(here::here("data/Lobster_Trap_Counts_All_Years_20210519.csv"))
+head(lobster_traps)
+
+```
