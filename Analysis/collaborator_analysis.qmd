@@ -29,6 +29,7 @@ SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster 
 04/17/2026
 
 # Analysis
+
 ```{r}
 # Loading libraries
 library(readr)
@@ -82,6 +83,9 @@ distribution_of_trap_counts_by_year<-ggplot(data = lobster_traps, aes(x = TRAPS)
     panel.grid.minor = element_blank()
   )
 
+# Display plot
+distribution_of_trap_counts_by_year
+
 #Save it as a PNG into the figs folder
 ggsave(
   filename = "../figs/distribution_of_trap_counts_by_year.png",
@@ -121,6 +125,10 @@ lobster_traps_by_site_year<-ggplot(data = lobster_traps_summarize,
     legend.text = element_text(size = 9),
     legend.title = element_text(size = 10)
   )
+
+# Display plot
+lobster_traps_by_site_year
+
 ggsave(
   filename = "../figs/lobster_traps_by_site_year.png",
   plot = lobster_traps_by_site_year,
