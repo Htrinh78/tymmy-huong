@@ -12,6 +12,8 @@ execute:
   warning: false
 ---
 
+## Introduction
+
 ## Data source
 
 The lobster abundance and size data used in this report were obtained from the **Santa Barbara Coastal Long-Term Ecological Research (SBC LTER)** program, archived on the EDI Data Portal. Data were collected by divers conducting annual and periodic surveys along permanent transects at five reef sites in the Santa Barbara Channel. Lobster counts and carapace lengths (mm) were recorded at each transect and replicate.
@@ -266,6 +268,8 @@ ggsave(
   height = 6,                                                   # height in inches
   dpi = 300                                                     # resolution
 )
+
+
 ```
 
 **Figure 5: Temporal Trends in Trap Counts**
@@ -274,7 +278,11 @@ It tracks total lobster trap counts at each site across the study period.
 
 ```{r}
 # Summarize trap counts by site and year
-lobster_traps_summarize <- lobster_traps %>%
+lobster_traps_filtered <- lobster_traps %>%
+  filter(SITE %in% c("AQUE", "CARP", "IVEE", "MOHK", "NAPL")) %>%
+  mutate(SITE = factor(SITE, levels = sort(unique(SITE))))
+# Step 2: summarize filtered data
+lobster_traps_summarize <- lobster_traps_filtered %>%
   group_by(SITE, YEAR) %>%
   summarise(TOTAL_TRAPS = sum(TRAPS, na.rm = TRUE), .groups = "drop")
 
@@ -308,6 +316,10 @@ ggsave(
   height = 6,                                          # height in inches
   dpi = 300                                            # resolution
 )
+# Filter to match owner analysis sites
+lobster_traps_filtered <- lobster_traps %>%
+  filter(SITE %in% c("AQUE", "CARP", "IVEE", "MOHK", "NAPL")) %>%
+  mutate(SITE = factor(SITE, levels = sort(unique(SITE))))
 ```
 
 **Figure 6: Fishing Pressure Categories During 2019–2021**
@@ -315,21 +327,29 @@ ggsave(
 It compares how often high and low fishing pressure occurred at each site from 2019 to 2021.
 
 ```{r}
-# Create fishing pressure categories
+# Create fishing pressure categories, filtered to partner sites
 lobster_traps_fishing_pressure <- lobster_traps %>%
-  filter(YEAR %in% c(2019, 2020, 2021)) %>%
-  mutate(FISHING_PRESSURE = if_else(TRAPS >= 8, "high", "low")) %>%
+  filter(
+    SITE %in% c("AQUE", "CARP", "IVEE", "MOHK", "NAPL"),
+    YEAR %in% c(2019, 2020, 2021),
+    !is.na(TRAPS)   # ← removes NA problem
+  ) %>%
+  mutate(
+    SITE = factor(SITE, levels = c("AQUE", "CARP", "IVEE", "MOHK", "NAPL")),
+    FISHING_PRESSURE = if_else(TRAPS >= 8, "high", "low")
+  ) %>%
   group_by(SITE, FISHING_PRESSURE) %>%
-  summarise(COUNT = n(), .groups = "drop") %>%
-  drop_na()
+  summarise(COUNT = n(), .groups = "drop")
 
-# Create a styled plot object for fishing pressure by site
+# Plot
 trap_pressure_plot <- ggplot(
   data = lobster_traps_fishing_pressure,
   aes(x = SITE, y = COUNT, fill = FISHING_PRESSURE)
 ) +
-  geom_col(position = "dodge") +
-  coord_flip() +
+  geom_col(
+  position = position_dodge(preserve = "single"),
+  width = 0.7
+) +
   labs(
     title = "Fishing Pressure by Site (2019–2021)",
     x = "Site",
@@ -339,14 +359,13 @@ trap_pressure_plot <- ggplot(
   theme_light() +
   theme(
     plot.title = element_text(hjust = 0.5, face = "bold"),
-    axis.title.y = element_text(face = "bold"),
-    axis.title.x = element_text(face = "bold"),
-    text = element_text(size = 12)
+    axis.text.x = element_text(angle = 0, hjust = 0.5)
   )
 
 # Display plot
 trap_pressure_plot
 
+# Save plot
 ggsave(
   filename = "../figs/trap_pressure_plot.png",
   plot = trap_pressure_plot,
@@ -358,6 +377,6 @@ ggsave(
 
 ## Discussion
 
-### Lobster Abundance and Size (All Years)
+### system("git add Analysis/lobster_report.qmd Analysis/lobster_report.html Analysis/lobster_report_files")Lobster Abundance and Size (All Years)
 
 Figure 1 shows that most lobsters at all five sites had carapace lengths between 60 and 100 mm, and the distributions were right-skewed, meaning there were fewer large individuals. Naples Reef (NAPL), which is an MPA, had a wider size distribution with some lobsters reaching up to 220 mm, because lobsters there are not harvested and can grow larger and live longer. At non-MPA sites, very large lobsters were less common, suggesting that fishing pressure limits how large lobsters can get. Figure 2 shows that lobster counts were relatively stable from 2012 to 2022, staying between 50 and 550 per year across all sites. After 2022, counts increased sharply, especially at Isla Vista (IVEE) and Carpinteria (CARP), which reached about 1,150 and 650 lobsters by 2025. This increase may be due to reduced fishing pressure, better ocean conditions, or population recovery over time. IVEE is an MPA, where fishing is restricted, which likely explains why it showed the largest increase. Arroyo Quemado (AQUE) stayed low throughout the entire monitoring period, which may suggest that this site has less suitable habitat for lobsters. Figure 3 shows that from 2019 to 2021, large lobsters (\> 70 mm) were more common than small ones (≤ 70 mm) at every site, with IVEE and CARP having the highest counts and AQUE the fewest. The dominance of larger lobsters is likely related to the legal minimum size for commercial harvest, which protects smaller lobsters and gives them time to grow. Overall, these patterns suggest that fishing regulations and MPA protection both play an important role in shaping lobster populations along the Santa Barbara coast.
