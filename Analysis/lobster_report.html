@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tymesha Bovell and Huong Trinh">
-<meta name="dcterms.date" content="2026-04-23">
+<meta name="dcterms.date" content="2026-04-28">
 
 <title>Lobster Report</title>
 <style>
@@ -21,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -101,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 23, 2026</p>
+      <p class="date">April 28, 2026</p>
     </div>
   </div>
   
@@ -116,103 +81,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-source" class="level2">
 <h2 class="anchored" data-anchor-id="data-source">Data source</h2>
 <p>The lobster abundance and size data used in this report were obtained from the <strong>Santa Barbara Coastal Long-Term Ecological Research (SBC LTER)</strong> program, archived on the EDI Data Portal. Data were collected by divers conducting annual and periodic surveys along permanent transects at five reef sites in the Santa Barbara Channel. Lobster counts and carapace lengths (mm) were recorded at each transect and replicate.</p>
-<p><strong>-Dataset:</strong> Reed, D., and R. Miller. 2023. <em>SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012.</em> Environmental Data Initiative.</p>
+<p><strong>-Dataset:</strong> Reed, D., and R. Miller. 2023. *SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012.</p>
 <p>-<strong>Downloaded:</strong> April 17, 2026</p>
-<p>- <strong>Direct download link:</strong> <code>https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-sbc.77.8</code></p>
-<hr>
+<p>- <strong>Direct download link:</strong> <a href="https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-sbc.77.8" class="uri">https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-sbc.77.8</a></p>
 </section>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>This report presents an analysis of California spiny lobster (<em>Panulirus interruptus</em>) abundance and size distribution across five reef sites along the Santa Barbara Channel mainland coast, using long-term monitoring data collected by SBC LTER researchers from 2012 to 2025. The owner analysis focuses on lobster abundance and carapace size trends over time and across sites, examining site-level variation and temporal dynamics in this ecologically and commercially important species. The collaborator analysis focuses on trap counts as a proxy for fishing pressure which may explain differences in lobster abundance and size observed in other parts of the dataset.</p>
+<p>This report examines the relationship between commercial fishing pressure and California spiny lobster (*Panulirus interruptus*) population health along the Santa Barbara Channel coast, using long-term monitoring data collected by SBC LTER researchers from 2012 to 2025. The owner analysis focuses on lobster abundance and size distribution across five reef sites, while the collaborator analysis examines commercial trap buoy counts as a measure of fishing pressure. Together, the analyses explore whether higher commercial trapping activity corresponds to lower lobster abundance and smaller body sizes, providing evidence for the negative impact of commercial fishing on local lobster populations.</p>
+<hr>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In addition to fishing pressure, marine protected area (MPA) status provides important context for interpretation. According to the SBC LTER lobster fishing pressure protocol (Harrer and Nelson, 2014), the sites Naples and Isla Vista were designated as marine protected areas (MPAs) in 2012. Within this dataset, the site NAPL corresponds to Naples and is therefore treated as a confirmed MPA site. However, MPA status is not explicitly defined for all site codes, and not all sites can be directly matched to protected areas. As a result, comparisons between protected and non-protected sites are limited must be interpreted cautiously. The central focus of this study is to assess whether a consistent negative relationship exists between fishing pressure and lobster population characteristics, or whether this relationship varies across sites. Specifically, this analysis tests whether sites with higher trap density and more frequent high-pressure classifications show lower lobster abundance or a reduced proportion of large individuals during the 2019–2021 period. By comparing biological patterns with fishing effort across sites and incorporating confirmed MPA status where available—this study aims to identify whether reduced fishing pressure is associated with stronger lobster populations.</p>
 <hr>
 </section>
 <section id="data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="data-analysis">Data Analysis</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lobster_abundance <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/Lobster_Abundance_All_Years_20260108.csv"</span>))</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>lobster_traps <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/Lobster_Trap_Counts_All_Years_20210519.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <section id="lobster-abundance-and-size-all-years" class="level3">
 <h3 class="anchored" data-anchor-id="lobster-abundance-and-size-all-years">Lobster Abundance and Size (All Years)</h3>
 <section id="data-exploration-and-cleaning" class="level4">
-<h4 class="anchored" data-anchor-id="data-exploration-and-cleaning">Data Exploration and Cleaning</h4>
-<p>The lobster abundance and size dataset contains 14,333 rows and 10 columns, spanning observations from 2012 through 2025 across five reef sites: Arroyo Quemado (AQUE), Carpinteria (CARP), Isla Vista (IVEE), Mohawk (MOHK), and Naples (NAPL). Variables include the year, month, date, site, transect, replicate, carapace length (<code>SIZE_MM</code>), lobster count, and survey area. During initial exploration, the <code>SIZE_MM</code> column was found to use <code>-99999</code> as a placeholder for missing carapace measurements. These values were recoded as <code>NA</code> prior to analysis to prevent them from distorting any size-based summaries or visualizations. After cleaning, 154 distinct carapace lengths were recorded, ranging from 18 mm to 220 mm.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lobster_abundance <span class="ot">&lt;-</span> lobster_abundance <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SIZE_MM =</span> <span class="fu">na_if</span>(SIZE_MM, <span class="sc">-</span><span class="dv">99999</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<h4 class="anchored" data-anchor-id="data-exploration-and-cleaning"><strong>Data Exploration and Cleaning</strong></h4>
+<p>The lobster abundance and size dataset contains 14,333 rows and 10 columns, spanning observations from 2012 through 2025 across five reef sites: Arroyo Quemado (AQUE), Carpinteria (CARP), Isla Vista (IVEE), Mohawk (MOHK), and Naples (NAPL). Variables include the year, month, date, site, transect, replicate, carapace length (`SIZE_MM`), lobster count, and survey area.</p>
+<p>During initial exploration, the `SIZE_MM` column was found to use `-99999` as a placeholder for missing carapace measurements. These values were recoded as `NA` prior to analysis to prevent them from distorting any size-based summaries or visualizations. After cleaning, 154 distinct carapace lengths were recorded, ranging from 18 mm to 220 mm.</p>
 </section>
 <section id="data-wrangling" class="level4">
-<h4 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h4>
+<h4 class="anchored" data-anchor-id="data-wrangling"><strong>Data Wrangling</strong></h4>
 <p>To support targeted analysis, two subsets were created from the cleaned dataset. The first excluded observations from Naples Reef (NAPL) to allow comparison among the four remaining non-MPA and MPA sites independently. The second isolated individuals from Arroyo Quemado (AQUE) with a carapace length of at least 70 mm, capturing the larger size class at that site. In addition, maximum carapace length was computed for each combination of site and sampling month, providing a summary of the largest individuals recorded across the monitoring period. For the size class visualization, lobsters surveyed between 2019 and 2021 were classified as either “small” (carapace ≤ 70 mm) or “large” (carapace &gt; 70 mm), and counts within each size class were summarized by site.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>not_napl <span class="ot">&lt;-</span> lobster_abundance <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SITE <span class="sc">!=</span> <span class="st">"NAPL"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>aque_70mm <span class="ot">&lt;-</span> lobster_abundance <span class="sc">%&gt;%</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SITE <span class="sc">==</span> <span class="st">"AQUE"</span> <span class="sc">&amp;</span> SIZE_MM <span class="sc">&gt;=</span> <span class="dv">70</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>max_lobster <span class="ot">&lt;-</span> lobster_abundance <span class="sc">%&gt;%</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SITE, MONTH) <span class="sc">%&gt;%</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">MAX_LENGTH =</span> <span class="fu">max</span>(SIZE_MM, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>lobsters_summarize <span class="ot">&lt;-</span> lobster_abundance <span class="sc">%&gt;%</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SITE, YEAR) <span class="sc">%&gt;%</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">COUNT =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>lobster_size_lrg <span class="ot">&lt;-</span> lobster_abundance <span class="sc">%&gt;%</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(YEAR <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SIZE_BIN =</span> <span class="fu">if_else</span>(SIZE_MM <span class="sc">&lt;=</span> <span class="dv">70</span>, <span class="at">true =</span> <span class="st">"small"</span>, <span class="at">false =</span> <span class="st">"large"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SITE, SIZE_BIN) <span class="sc">%&gt;%</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">COUNT =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section>
 </section>
 <section id="lobster-trap-buoy-counts-all-years" class="level3">
 <h3 class="anchored" data-anchor-id="lobster-trap-buoy-counts-all-years">Lobster Trap Buoy Counts (All Years)</h3>
 <section id="data-exploration-and-cleaning-1" class="level4">
-<h4 class="anchored" data-anchor-id="data-exploration-and-cleaning-1">Data Exploration and Cleaning</h4>
+<h4 class="anchored" data-anchor-id="data-exploration-and-cleaning-1"><strong>Data Exploration and Cleaning</strong></h4>
 <p>The lobster trap buoy counts dataset contains trap count observations collected across the same five reef sites from 2012 to 2021. Variables include the year, month, date, site, transect, replicate, and the number of commercial trap floats (TRAPS). During initial exploration, the TRAPS column was found to use -99999 as a placeholder for missing values. These were recoded as NA before any analysis to avoid skewing the results.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lobster_traps <span class="ot">&lt;-</span> lobster_traps <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">TRAPS =</span> <span class="fu">na_if</span>(TRAPS, <span class="sc">-</span><span class="dv">99999</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section>
 <section id="data-wrangling-1" class="level4">
-<h4 class="anchored" data-anchor-id="data-wrangling-1">Data Wrangling</h4>
+<h4 class="anchored" data-anchor-id="data-wrangling-1"><strong>Data Wrangling</strong></h4>
 <p>To support interpretation of fishing pressure, trap counts were summarized by site and year to examine temporal changes across locations. In addition, observations from 2019 to 2021 were classified into “high” and “low” fishing pressure categories using a threshold of 8 traps, following the class exercise. These categories were then summarized by site to compare how frequently higher fishing pressure occurred across the study area.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>not_napl <span class="ot">&lt;-</span> lobster_traps <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(SITE <span class="sc">!=</span> <span class="st">"NAPL"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>carp_20_traps <span class="ot">&lt;-</span> lobster_traps <span class="sc">%&gt;%</span> </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(SITE <span class="sc">==</span> <span class="st">"CARP"</span> <span class="sc">&amp;</span> TRAPS <span class="sc">&gt;</span> <span class="dv">20</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>max_lobster_traps <span class="ot">&lt;-</span> lobster_traps <span class="sc">%&gt;%</span> </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(SITE, MONTH) <span class="sc">%&gt;%</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">MAX_TRAPS =</span> <span class="fu">max</span>(TRAPS, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>lobster_traps_summarize <span class="ot">&lt;-</span> lobster_traps <span class="sc">%&gt;%</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SITE, YEAR) <span class="sc">%&gt;%</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">TOTAL_TRAPS =</span> <span class="fu">sum</span>(TRAPS, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>lobster_traps_fishing_pressure <span class="ot">&lt;-</span> lobster_traps <span class="sc">%&gt;%</span> </span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">FISHING_PRESSURE =</span> <span class="fu">if_else</span>(TRAPS <span class="sc">&gt;=</span> <span class="dv">8</span>, <span class="at">true =</span> <span class="st">"high"</span>, <span class="at">false =</span> <span class="st">"low"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(SITE, FISHING_PRESSURE) <span class="sc">%&gt;%</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">COUNT =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <hr>
 </section>
 </section>
@@ -222,32 +127,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="lobster-abundance-and-size-all-years-1" class="level3">
 <h3 class="anchored" data-anchor-id="lobster-abundance-and-size-all-years-1">Lobster Abundance and Size (All Years)</h3>
 <p><strong>Figure 1: Size Distribution Patterns</strong></p>
-<p>It shows the distribution of carapace lengths at each site across the full monitoring period.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lobster_abundance, <span class="fu">aes</span>(<span class="at">x =</span> SIZE_MM)) <span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"#2a6b8a"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> SITE, <span class="at">ncol =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Lobster Carapace Size Distribution by Site"</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Carapace Length (mm)"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title       =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title       =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text        =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text       =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-size-histogram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-size-hist" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Faceted histogram showing lobster carapace size distributions. All sites are right-skewed around 70–100 mm. NAPL and IVEE show the widest spread toward larger sizes.">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-size-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lobster_report_files/figure-html/fig-size-histogram-1.png" class="img-fluid figure-img" width="672">
+<div aria-describedby="fig-size-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lobster_report_files/figure-html/fig-size-hist-1.png" class="img-fluid figure-img" alt="Faceted histogram showing lobster carapace size distributions. All sites are right-skewed around 70–100 mm. NAPL and IVEE show the widest spread toward larger sizes." width="672">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-size-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-size-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Distribution of California spiny lobster carapace length (mm) at each of the five SBC LTER reef sites (2012–2025).
 </figcaption>
 </figure>
@@ -255,40 +142,14 @@ Figure&nbsp;1: Distribution of California spiny lobster carapace length (mm) at 
 </div>
 </div>
 <p><strong>Figure 2: Temporal Trends in Lobster Abundance</strong></p>
-<p>It tracks total lobster observations at each site from 2012 to 2025.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lobster_line_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> lobsters_summarize,</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> COUNT, <span class="at">color =</span> SITE)) <span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2012</span>, <span class="dv">2025</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Total Lobsters Observed by Year"</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Lobsters"</span>,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Site"</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title       =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x     =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y     =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x      =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>, <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y      =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title     =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>),</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text      =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>lobster_line_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-abundance-trend" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-abundance" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Line plot of lobster counts by year and site. IVEE and CARP show sharp increases after 2022. AQUE remains consistently low.">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-abundance-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lobster_report_files/figure-html/fig-abundance-trend-1.png" class="img-fluid figure-img" width="672">
+<div aria-describedby="fig-abundance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lobster_report_files/figure-html/fig-abundance-1.png" class="img-fluid figure-img" alt="Line plot of lobster counts by year and site. IVEE and CARP show sharp increases after 2022. AQUE remains consistently low." width="672">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-abundance-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-abundance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Total number of California spiny lobster observations per year at each SBC LTER reef site, 2012–2025.
 </figcaption>
 </figure>
@@ -296,37 +157,15 @@ Figure&nbsp;2: Total number of California spiny lobster observations per year at
 </div>
 </div>
 <p><strong>Figure 3: Size Class Composition During 2019–2021</strong></p>
-<p>It compares small and large lobster counts across sites during 2019–2021.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lobster_size_lrg,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> SITE, <span class="at">y =</span> COUNT, <span class="at">fill =</span> SIZE_BIN)) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"large"</span> <span class="ot">=</span> <span class="st">"#e07b54"</span>, <span class="st">"small"</span> <span class="ot">=</span> <span class="st">"#4db3a4"</span>),</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Large (&gt; 70 mm)"</span>, <span class="st">"Small (≤ 70 mm)"</span>)) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Lobster Size Class by Site (2019–2021)"</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Site"</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Size Class"</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title       =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title       =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text        =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>),</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title     =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text      =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>),</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-size-class" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-size-class" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Dodged bar chart. Large lobsters dominate at all sites. IVEE and CARP have the highest counts overall.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-size-class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lobster_report_files/figure-html/fig-size-class-1.png" class="img-fluid figure-img" width="672">
+<img src="lobster_report_files/figure-html/fig-size-class-1.png" class="img-fluid figure-img" alt="Dodged bar chart. Large lobsters dominate at all sites. IVEE and CARP have the highest counts overall." width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-size-class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Count of small (≤ 70 mm) and large (&gt; 70 mm) California spiny lobsters at each SBC LTER site from 2019 to 2021.
+Figure&nbsp;3: Count of small (≤ 70 mm) and large (&gt; 70 mm) lobsters at each SBC LTER site from 2019 to 2021.
 </figcaption>
 </figure>
 </div>
@@ -336,116 +175,42 @@ Figure&nbsp;3: Count of small (≤ 70 mm) and large (&gt; 70 mm) California spin
 <section id="lobster-trap-buoy-counts-all-years-1" class="level3">
 <h3 class="anchored" data-anchor-id="lobster-trap-buoy-counts-all-years-1">Lobster Trap Buoy Counts (All Years)</h3>
 <p><strong>Figure 4: Distribution of Trap Counts by Year</strong></p>
-<p>It shows how lobster trap counts were distributed across years in the monitoring record.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>distribution_of_trap_counts_by_year<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data =</span> lobster_traps, <span class="fu">aes</span>(<span class="at">x =</span> TRAPS)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">bins =</span> <span class="dv">30</span>, </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"steelblue"</span>, </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> YEAR, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Lobster Trap Counts by Year"</span>,</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of Traps"</span>,</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency (Observation Counts)"</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="at">by =</span> <span class="dv">10</span>)</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>distribution_of_trap_counts_by_year</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-traps-histogram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-traps-histogram" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Faceted histogram of trap counts per year. Most years show counts concentrated near zero with a right-skewed distribution.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-traps-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lobster_report_files/figure-html/fig-traps-histogram-1.png" class="img-fluid figure-img" width="672">
+<img src="lobster_report_files/figure-html/fig-traps-histogram-1.png" class="img-fluid figure-img" alt="Faceted histogram of trap counts per year. Most years show counts concentrated near zero with a right-skewed distribution." width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-traps-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Distribution of lobster commercial trap counts grouped by year.
+Figure&nbsp;4: Distribution of lobster commercial trap counts grouped by year across all SBC LTER reef sites.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p><strong>Figure 5: Temporal Trends in Trap Counts</strong></p>
-<p>It tracks total lobster trap counts at each site across the study period.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lobster_traps_by_site_year<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data =</span> lobster_traps_summarize, </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> TOTAL_TRAPS, <span class="at">color =</span> SITE)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Total Lobster Trap Counts by Site Over Time"</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total Trap Counts"</span>,</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Site"</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>lobster_traps_by_site_year</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-traps-line" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-traps-line" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Line plot of total trap counts by year and site. CARP consistently records the highest trap counts. Most sites show a decline after 2016.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-traps-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lobster_report_files/figure-html/fig-traps-line-1.png" class="img-fluid figure-img" width="672">
+<img src="lobster_report_files/figure-html/fig-traps-line-1.png" class="img-fluid figure-img" alt="Line plot of total trap counts by year and site. CARP consistently records the highest trap counts. Most sites show a decline after 2016." width="960">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-traps-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Total lobster commercial traps observed by year at each SBC LTER reef site.
+Figure&nbsp;5: Total lobster commercial traps observed by year at each SBC LTER reef site, 2012–2021.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p><strong>Figure 6: Fishing Pressure Categories During 2019–2021</strong></p>
-<p>It compares how often high and low fishing pressure occurred at each site from 2019 to 2021.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>trap_pressure_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> lobster_traps_fishing_pressure,</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> SITE, <span class="at">y =</span> COUNT, <span class="at">fill =</span> FISHING_PRESSURE)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span>              </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span>                            </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Fishing Pressure by Site (2019–2021)"</span>,</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Site"</span>,</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Fishing Pressure"</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span>                            </span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>),   </span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),            </span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),              </span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)                           </span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>trap_pressure_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-fishing-pressure" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-fishing-pressure" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Horizontal dodged bar chart. Low fishing pressure dominates at most sites. CARP shows the most high-pressure observations.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fishing-pressure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lobster_report_files/figure-html/fig-fishing-pressure-1.png" class="img-fluid figure-img" width="672">
+<img src="lobster_report_files/figure-html/fig-fishing-pressure-1.png" class="img-fluid figure-img" alt="Horizontal dodged bar chart. Low fishing pressure dominates at most sites. CARP shows the most high-pressure observations." width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fishing-pressure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6: Count of high (≥ 8 traps) and low (&lt; 8 traps) fishing pressure observations at each SBC LTER site from 2019 to 2021.
@@ -460,10 +225,24 @@ Figure&nbsp;6: Count of high (≥ 8 traps) and low (&lt; 8 traps) fishing pressu
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
 <p>Across both the lobster abundance/size data (Figures 1–3) and the fishing pressure data (Figures 4–6), clear spatial and temporal patterns emerge that suggest fishing pressure plays an important role in shaping lobster populations in the Santa Barbara Channel.</p>
-<p>From the abundance and size analysis, lobster carapace lengths (Figure 1) show generally right-skewed distributions, with most individuals clustered in a moderate size range (approximately 70–100 mm), but with some larger individuals present at certain sites. In particular, sites such as NAPL and IVEE show a wider spread toward larger sizes compared to other locations, indicating that lobsters at these sites may be able to grow larger. Temporal trends in abundance (Figure 2) indicate that lobster counts fluctuate across years and vary substantially by site, with sites such as CARP and GOLB often showing higher total counts compared to others, suggesting spatial differences in population density. Additionally, the comparison of small versus large lobsters (Figure 3) demonstrates differences in size structure across sites, where some sites are dominated by smaller individuals while others contain a higher proportion of larger lobsters.</p>
-<p>The fishing pressure analysis provides important context for interpreting these biological patterns. The distribution of trap counts by year (Figure 4) shows that most observations involve relatively low numbers of traps, but occasional spikes indicate periods of increased fishing activity. When summarized over time (Figure 5), sites such as CARP and GOLB consistently exhibit higher total trap counts than other locations, indicating that fishing effort is concentrated at specific sites rather than evenly distributed. Finally, the classification of fishing pressure into “high” and “low” categories (Figure 6) shows that CARP and GOLB experience a higher frequency of high fishing pressure, whereas sites such as IVEE and NAPL show fewer high-pressure observations, consistent with reduced fishing activity at those locations.</p>
-<p>When these results are considered together, a clear relationship emerges between fishing pressure and lobster population structure. Sites with consistently higher fishing pressure (CARP and GOLB; Figures 5 and 6) correspond to sites where the proportion of larger lobsters is lower (Figure 3), suggesting that fishing activity may be removing larger individuals from the population. In contrast, sites with lower fishing pressure, including Marine Protected Areas (IVEE and NAPL; Figures 5 and 6), show evidence of larger individuals in Figure 1, indicating that reduced fishing allows lobsters to grow to larger sizes. Additionally, although sites such as CARP may show higher total abundance in Figure 2, this may reflect high recruitment or turnover rather than the presence of large, mature individuals.</p>
-<p>Overall, this analysis suggests that fishing pressure is unevenly distributed across sites and is strongly associated with differences in both lobster size and abundance. By directly comparing fishing effort (Figures 4–6) with biological patterns (Figures 1–3), it becomes evident that higher fishing pressure is linked to fewer large lobsters and altered population structure, while lower fishing pressure—particularly in MPAs—supports larger individuals and potentially more stable populations. These findings highlight the importance of managing fishing effort and demonstrate the ecological value of Marine Protected Areas in maintaining healthy kelp forest ecosystems.</p>
+<p>Figure 1 shows that most lobsters across all five sites had carapace lengths between 60 and 100 mm, with right-skewed distributions indicating fewer large individuals. Naples Reef (NAPL), an MPA, had a wider size distribution reaching up to 220 mm, consistent with reduced harvesting allowing lobsters to grow larger and live longer. Figure 2 shows that lobster counts were relatively stable from 2012 to 2022, then increased sharply at IVEE and CARP after 2022, likely reflecting population recovery from reduced fishing pressure. AQUE remained consistently low throughout the monitoring period. Figure 3 shows that large lobsters (&gt; 70 mm) outnumbered small ones (≤ 70 mm) at every site from 2019 to 2021, which is likely related to the legal minimum harvest size protecting smaller individuals. Together, these patterns suggest that MPA protection and fishing regulations both play an important role in shaping lobster populations along the Santa Barbara coast.</p>
+<p>Figure 5 shows that commercial trap counts were highest between 2012 and 2016, especially at Carpinteria (CARP), and then declined sharply at most sites after 2016. This decline in trapping effort roughly corresponds to the period when lobster abundance began recovering, as shown in Figure 2. CARP, which had the highest trap counts throughout the monitoring period, also showed a wide range of lobster sizes and counts — but notably, its recovery in abundance came later than at MPA sites like IVEE, suggesting that even moderate trapping pressure can slow population rebound. Figure 6 shows that from 2019 to 2021, low fishing pressure (\&lt; 8 traps) was more common than high pressure at most sites, but CARP still recorded the most high-pressure observations. Taken together, the collaborator analysis supports the idea that commercial trapping negatively affects lobster populations, with sites experiencing higher trap counts showing delayed or more modest recovery compared to protected areas.</p>
+<p><strong>Commercial Fishing Impacts on Lobster Populations</strong></p>
+<p>The figure below directly compares lobster abundance (left) and commercial trap counts (right) over time at each site. This side-by-side view illustrates the inverse relationship between fishing pressure and lobster population size — as trap counts declined after 2016, lobster counts began to recover, particularly at MPA sites where trapping was already restricted.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-combined" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two line plots side by side. The left shows lobster counts increasing after 2016, especially at IVEE and CARP. The right shows trap counts declining after 2016, especially at CARP. The contrasting trends support the hypothesis that reduced fishing pressure allows lobster populations to recover.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-combined-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lobster_report_files/figure-html/fig-combined-1.png" class="img-fluid figure-img" alt="Two line plots side by side. The left shows lobster counts increasing after 2016, especially at IVEE and CARP. The right shows trap counts declining after 2016, especially at CARP. The contrasting trends support the hypothesis that reduced fishing pressure allows lobster populations to recover." width="1152">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-combined-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Left: Total lobsters observed by year. Right: Total commercial traps by year. The inverse trend between trap counts and lobster abundance suggests a negative impact of commercial fishing on lobster populations.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 
 </main>
